@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+﻿import React, { useState, useEffect } from "react";
 import {
     IconButton,
     InputBase,
@@ -9,8 +9,6 @@ import {
     Grid,
     Paper,
     Typography,
-    TextField,
-    Button,
     Card,
     CardContent,
     Table,
@@ -21,6 +19,7 @@ import {
     TableRow,
     Snackbar,
     Alert,
+    CircularProgress,
 } from "@mui/material";
 import {
     Search as SearchIcon,
@@ -39,113 +38,178 @@ import {
 import { Root, AppBarStyled, DrawerStyled, Content } from "../styles/DashboardStyles";
 import { Link } from "react-router-dom";
 import { useTheme } from "../styles/ThemeContext";
-import { Calendar, dateFnsLocalizer } from "react-big-calendar";
-import format from "date-fns/format";
-import parse from "date-fns/parse";
-import startOfWeek from "date-fns/startOfWeek";
-import getDay from "date-fns/getDay";
-import "react-big-calendar/lib/css/react-big-calendar.css";
 import { BarChart as RechartsBarChart, Bar, XAxis, YAxis, Tooltip, Legend } from "recharts";
-
-// Configuration du calendrier
-const locales = {
-    "fr-FR": require("date-fns/locale/fr"),
-};
-
-const localizer = dateFnsLocalizer({
-    format,
-    parse,
-    startOfWeek,
-    getDay,
-    locales,
-});
-
-// Données factices
-const events = [
-    { title: "Congé de Jean", start: new Date(2023, 9, 10), end: new Date(2023, 9, 15) },
-    { title: "Réunion d'équipe", start: new Date(2023, 9, 20), end: new Date(2023, 9, 20) },
-];
-
-const data = [
-    { name: "Jan", congés: 10 },
-    { name: "Fév", congés: 15 },
-    { name: "Mar", congés: 8 },
-    { name: "Avr", congés: 12 },
-    { name: "Mai", congés: 7 },
-];
+import axios from "axios";
 
 const Dashboard = () => {
     const { darkMode, toggleTheme } = useTheme();
-    const [searchTerm, setSearchTerm] = useState("");
-    const [notifications, setNotifications] = useState([
-        { id: 1, message: "Congé approuvé pour Jean Dupont", read: false },
-        { id: 2, message: "Nouvel employé ajouté : Marie Curie", read: false },
-    ]);
+    const [statistiques, setStatistiques] = useState({
+        nombreEmployes: 0,
+        congesEnAttente: 0,
+        certificatsMedicaux: 0,
+        evenementsAVenir: 0,
+    });
+    const [employes, setEmployes] = useState([]);
+    const [conges, setConges] = useState([]);
+    const [certificats, setCertificats] = useState([]);
+    const [loading, setLoading] = useState(true); // État pour gérer le chargement
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [snackbarMessage, setSnackbarMessage] = useState("");
     const [snackbarSeverity, setSnackbarSeverity] = useState("success");
 
-    const handleLogout = () => {
-        console.log("Utilisateur déconnecté");
-    };
+    // Charger les données depuis l'API
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const [employesResponse, congesResponse, certificatsResponse] = await Promise.all([
+                    axios.get("http://localhost:5126/api/employes"),
+                    axios.get("http://localhost:5126/api/conges"),
+                    axios.get("http://localhost:5126/api/certificats"),
+                ]);
 
-    const handleMarkAsRead = (id) => {
-        setNotifications(notifications.map((n) => (n.id === id ? { ...n, read: true } : n)));
-    };
+                // Accéder à $values pour obtenir les données
+                const employes = employesResponse.data.$values || [];
+                const conges = congesResponse.data.$values || [];
+                const certificats = certificatsResponse.data.$values || [];
 
+                // Calculer les statistiques
+                const nombreEmployes = employes.length;
+                const congesEnAttente = conges.filter(c => c.statut === "En attente").length;
+                const certificatsMedicaux = certificats.length;
+                const evenementsAVenir = conges.filter(c => new Date(c.dateDebut) > new Date()).length; // Événements à venir
+
+                setStatistiques({
+                    nombreEmployes,
+                    congesEnAttente,
+                    certificatsMedicaux,
+                    evenementsAVenir,
+                });
+
+                setEmployes(employes);
+                setConges(conges);
+                setCertificats(certificats);
+            } catch (error) {
+                if (error.response) {
+                    // Erreur de réponse du serveur (4xx, 5xx)
+                    console.error("Erreur de réponse du serveur :", error.response.data);
+                    showSnackbar(`Erreur ${error.response.status}: ${error.response.data.message}`, "error");
+                } else if (error.request) {
+                    // Pas de réponse du serveur
+                    console.error("Pas de réponse du serveur :", error.request);
+                    showSnackbar("Le serveur ne répond pas. Veuillez réessayer plus tard.", "error");
+                } else {
+                    // Autres erreurs
+                    console.error("Erreur lors de la configuration de la requête :", error.message);
+                    showSnackbar("Une erreur inattendue est survenue.", "error");
+                }
+            } finally {
+                setLoading(false); // Arrêter le chargement
+            }
+        };
+        fetchData();
+    }, []);
+
+    // Afficher un Snackbar
     const showSnackbar = (message, severity) => {
         setSnackbarMessage(message);
         setSnackbarSeverity(severity);
         setSnackbarOpen(true);
     };
 
+    // Fermer le Snackbar
     const handleSnackbarClose = () => {
         setSnackbarOpen(false);
     };
+
+    // Afficher un indicateur de chargement pendant la récupération des données
+    if (loading) {
+        return (
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+                <CircularProgress />
+            </div>
+        );
+    }
 
     return (
         <Root>
             {/* En-tête */}
             <AppBarStyled position="fixed" style={{ backgroundColor: darkMode ? '#424242' : 'transparent' }}>
-                <InputBase
-                    placeholder="Rechercher..."
-                    startAdornment={<SearchIcon style={{ color: darkMode ? 'white' : 'black' }} />}
-                    style={{ flex: 1, marginLeft: 8, color: darkMode ? 'white' : 'black' }}
-                />
-                <IconButton color="inherit" aria-label="notifications">
-                    <Notifications style={{ color: darkMode ? 'white' : 'black' }} />
-                </IconButton>
-                <IconButton color="inherit" aria-label="toggle theme" onClick={toggleTheme}>
-                    <Brightness4 style={{ color: darkMode ? 'white' : 'black' }} />
-                </IconButton>
-                <IconButton color="inherit" aria-label="settings">
-                    <Settings style={{ color: darkMode ? 'white' : 'black' }} />
-                </IconButton>
-                <IconButton color="inherit" aria-label="account">
-                    <AccountCircle style={{ color: darkMode ? 'white' : 'black' }} />
-                </IconButton>
-                <IconButton color="inherit" aria-label="logout" onClick={handleLogout}>
-                    <ExitToApp style={{ color: darkMode ? 'white' : 'black' }} />
-                </IconButton>
+                {/* Côté gauche vide (seulement le mot "ADMINIS") */}
+                <div style={{ display: "flex", alignItems: "center", marginLeft: 16 }}>
+                    <Typography variant="h6" style={{ color: darkMode ? 'white' : 'black' }}>
+                        ADMINIS
+                    </Typography>
+                </div>
+
+                {/* Barre de recherche centrée */}
+                <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Paper
+                        component="form"
+                        style={{
+                            display: "flex",
+                            alignItems: "center",
+                            width: 400, // Largeur de la barre de recherche
+                            backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)', // Fond semi-transparent
+                            borderRadius: 8, // Bordures arrondies
+                            padding: '2px 4px', // Espacement interne
+                        }}
+                    >
+                        <InputBase
+                            placeholder="Rechercher..."
+                            startAdornment={<SearchIcon style={{ color: darkMode ? 'white' : 'black', margin: '0 8px' }} />}
+                            style={{ flex: 1, color: darkMode ? 'white' : 'black' }}
+                        />
+                    </Paper>
+                </div>
+
+                {/* Icônes à droite */}
+                <div style={{ display: "flex", alignItems: "center", marginRight: 16 }}>
+                    <IconButton color="inherit" aria-label="notifications">
+                        <Notifications style={{ color: darkMode ? 'white' : 'black' }} />
+                    </IconButton>
+                    <IconButton color="inherit" aria-label="toggle theme" onClick={toggleTheme}>
+                        <Brightness4 style={{ color: darkMode ? 'white' : 'black' }} />
+                    </IconButton>
+                    <IconButton color="inherit" aria-label="settings">
+                        <Settings style={{ color: darkMode ? 'white' : 'black' }} />
+                    </IconButton>
+                    <IconButton color="inherit" aria-label="account">
+                        <AccountCircle style={{ color: darkMode ? 'white' : 'black' }} />
+                    </IconButton>
+                    <IconButton color="inherit" aria-label="logout" onClick={() => console.log("Déconnexion")}>
+                        <ExitToApp style={{ color: darkMode ? 'white' : 'black' }} />
+                    </IconButton>
+                </div>
             </AppBarStyled>
 
-            {/* Barre latérale */}
             <DrawerStyled
                 variant="permanent"
                 PaperProps={{ style: { backgroundColor: darkMode ? '#333' : '#fff' } }}
             >
                 <List>
-                    <ListItem>
-                        <ListItemText primary="ADMINIS" />
+                    {/* Titre "ADMINIS" avec espace en dessous */}
+                    <ListItem style={{ marginBottom: 24 }}> {/* Ajoutez une marge en bas */}
+                        <ListItemText
+                            primary=" "
+                            style={{ color: darkMode ? 'white' : 'black' }}
+                        />
                     </ListItem>
+
+                    {/* Utilisateur avec icône */}
                     <ListItem>
                         <ListItemIcon>
-                            <AccountCircle />
+                            <AccountCircle style={{ color: darkMode ? 'white' : 'black' }} />
                         </ListItemIcon>
-                        <ListItemText primary="Ed Roh" secondary="VP Fancy Admin" />
+                        <ListItemText
+                            primary="User"
+                            secondary="Admin"
+                            style={{ color: darkMode ? 'white' : 'black' }}
+                        />
                     </ListItem>
+
+                    {/* Autres éléments de la barre latérale */}
                     <ListItem>
-                        <ListItemText primary="Data" />
+                        <ListItemText primary="Data" style={{ color: darkMode ? 'white' : 'black' }} />
                     </ListItem>
                     <ListItem button component={Link} to="/">
                         <ListItemIcon>
@@ -184,7 +248,7 @@ const Dashboard = () => {
                         <ListItemText primary="Calendar" style={{ color: darkMode ? 'white' : 'black' }} />
                     </ListItem>
                     <ListItem>
-                        <ListItemText primary="Charts" />
+                        <ListItemText primary="Charts" style={{ color: darkMode ? 'white' : 'black' }} />
                     </ListItem>
                     <ListItem button component={Link} to="/charts">
                         <ListItemIcon>
@@ -196,52 +260,53 @@ const Dashboard = () => {
             </DrawerStyled>
 
             {/* Contenu principal */}
+
             <Content>
                 <Grid container spacing={3}>
                     {/* Cartes de résumé */}
                     <Grid item xs={12} sm={6} md={3}>
-                        <Card>
+                        <Card style={{ backgroundColor: darkMode ? '#424242' : '#fff' }}>
                             <CardContent>
-                                <Typography variant="h5" component="div">
-                                    <People /> 45
+                                <Typography variant="h5" component="div" style={{ color: darkMode ? 'white' : 'black' }}>
+                                    <People style={{ color: darkMode ? 'white' : 'black' }} /> {statistiques.nombreEmployes}
                                 </Typography>
-                                <Typography variant="body2" color="text.secondary">
+                                <Typography variant="body2" style={{ color: darkMode ? 'white' : 'black' }}>
                                     Nombre d'employés
                                 </Typography>
                             </CardContent>
                         </Card>
                     </Grid>
                     <Grid item xs={12} sm={6} md={3}>
-                        <Card>
+                        <Card style={{ backgroundColor: darkMode ? '#424242' : '#fff' }}>
                             <CardContent>
-                                <Typography variant="h5" component="div">
-                                    <ContactMail /> 12
+                                <Typography variant="h5" component="div" style={{ color: darkMode ? 'white' : 'black' }}>
+                                    <ContactMail style={{ color: darkMode ? 'white' : 'black' }} /> {statistiques.congesEnAttente}
                                 </Typography>
-                                <Typography variant="body2" color="text.secondary">
+                                <Typography variant="body2" style={{ color: darkMode ? 'white' : 'black' }}>
                                     Congés en attente
                                 </Typography>
                             </CardContent>
                         </Card>
                     </Grid>
                     <Grid item xs={12} sm={6} md={3}>
-                        <Card>
+                        <Card style={{ backgroundColor: darkMode ? '#424242' : '#fff' }}>
                             <CardContent>
-                                <Typography variant="h5" component="div">
-                                    <Receipt /> 5
+                                <Typography variant="h5" component="div" style={{ color: darkMode ? 'white' : 'black' }}>
+                                    <Receipt style={{ color: darkMode ? 'white' : 'black' }} /> {statistiques.certificatsMedicaux}
                                 </Typography>
-                                <Typography variant="body2" color="text.secondary">
+                                <Typography variant="body2" style={{ color: darkMode ? 'white' : 'black' }}>
                                     Certificats médicaux
                                 </Typography>
                             </CardContent>
                         </Card>
                     </Grid>
                     <Grid item xs={12} sm={6} md={3}>
-                        <Card>
+                        <Card style={{ backgroundColor: darkMode ? '#424242' : '#fff' }}>
                             <CardContent>
-                                <Typography variant="h5" component="div">
-                                    <CalendarToday /> 3
+                                <Typography variant="h5" component="div" style={{ color: darkMode ? 'white' : 'black' }}>
+                                    <CalendarToday style={{ color: darkMode ? 'white' : 'black' }} /> {statistiques.evenementsAVenir}
                                 </Typography>
-                                <Typography variant="body2" color="text.secondary">
+                                <Typography variant="body2" style={{ color: darkMode ? 'white' : 'black' }}>
                                     Événements à venir
                                 </Typography>
                             </CardContent>
@@ -250,62 +315,45 @@ const Dashboard = () => {
 
                     {/* Graphique des congés */}
                     <Grid item xs={12} md={6}>
-                        <Paper style={{ padding: "16px" }}>
-                            <Typography variant="h6" gutterBottom>
+                        <Paper style={{ padding: "16px", backgroundColor: darkMode ? '#424242' : '#fff' }}>
+                            <Typography variant="h6" gutterBottom style={{ color: darkMode ? 'white' : 'black' }}>
                                 Congés par mois
                             </Typography>
-                            <RechartsBarChart width={500} height={300} data={data}>
-                                <XAxis dataKey="name" />
-                                <YAxis />
+                            <RechartsBarChart width={500} height={300} data={conges}>
+                                <XAxis dataKey="dateDebut" stroke={darkMode ? 'white' : 'black'} />
+                                <YAxis stroke={darkMode ? 'white' : 'black'} />
                                 <Tooltip />
                                 <Legend />
-                                <Bar dataKey="congés" fill="#8884d8" />
+                                <Bar dataKey="duree" fill="#8884d8" />
                             </RechartsBarChart>
                         </Paper>
                     </Grid>
 
-                    {/* Calendrier */}
-                    <Grid item xs={12} md={6}>
-                        <Paper style={{ padding: "16px" }}>
-                            <Typography variant="h6" gutterBottom>
-                                Calendrier
-                            </Typography>
-                            <Calendar
-                                localizer={localizer}
-                                events={events}
-                                startAccessor="start"
-                                endAccessor="end"
-                                style={{ height: 500 }}
-                            />
-                        </Paper>
-                    </Grid>
-
-                    {/* Tableau des dernières activités */}
+                    {/* Tableau des derniers congés */}
                     <Grid item xs={12}>
-                        <Paper style={{ padding: "16px" }}>
-                            <Typography variant="h6" gutterBottom>
+                        <Paper style={{ padding: "16px", backgroundColor: darkMode ? '#424242' : '#fff' }}>
+                            <Typography variant="h6" gutterBottom style={{ color: darkMode ? 'white' : 'black' }}>
                                 Derniers congés demandés
                             </Typography>
                             <TableContainer>
                                 <Table>
                                     <TableHead>
                                         <TableRow>
-                                            <TableCell>Nom</TableCell>
-                                            <TableCell>Date</TableCell>
-                                            <TableCell>Statut</TableCell>
+                                            <TableCell style={{ color: darkMode ? 'white' : 'black' }}>Nom</TableCell>
+                                            <TableCell style={{ color: darkMode ? 'white' : 'black' }}>Date de début</TableCell>
+                                            <TableCell style={{ color: darkMode ? 'white' : 'black' }}>Date de fin</TableCell>
+                                            <TableCell style={{ color: darkMode ? 'white' : 'black' }}>Statut</TableCell>
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>
-                                        <TableRow>
-                                            <TableCell>Jean Dupont</TableCell>
-                                            <TableCell>2023-10-01</TableCell>
-                                            <TableCell>En attente</TableCell>
-                                        </TableRow>
-                                        <TableRow>
-                                            <TableCell>Marie Curie</TableCell>
-                                            <TableCell>2023-10-05</TableCell>
-                                            <TableCell>Approuvé</TableCell>
-                                        </TableRow>
+                                        {conges.map((conge) => (
+                                            <TableRow key={conge.id}>
+                                                <TableCell style={{ color: darkMode ? 'white' : 'black' }}>{conge.employe?.nom}</TableCell>
+                                                <TableCell style={{ color: darkMode ? 'white' : 'black' }}>{new Date(conge.dateDebut).toLocaleDateString()}</TableCell>
+                                                <TableCell style={{ color: darkMode ? 'white' : 'black' }}>{new Date(conge.dateFin).toLocaleDateString()}</TableCell>
+                                                <TableCell style={{ color: darkMode ? 'white' : 'black' }}>{conge.statut}</TableCell>
+                                            </TableRow>
+                                        ))}
                                     </TableBody>
                                 </Table>
                             </TableContainer>

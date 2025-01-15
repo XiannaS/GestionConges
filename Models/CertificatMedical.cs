@@ -15,17 +15,20 @@ namespace GestionConges.Models
         public DateTime DateFin { get; set; }
 
         [Required]
-        public string Commentaire { get; set; } = string.Empty; // Initialisation par défaut
+        public string Commentaire { get; set; } = string.Empty;
 
         // Clé étrangère pour Employes
         public int EmployeId { get; set; }
 
         // Propriété de navigation pour Employes (nullable)
-        public Employes? Employe { get; set; } // Rendre nullable
+        public Employes? Employe { get; set; }
+
+        // Chemin du fichier PDF
+        public string? FilePath { get; set; }
 
         public CertificatMedical()
         {
-            Commentaire = string.Empty; // Initialisation dans le constructeur
+            Commentaire = string.Empty;
         }
     }
 }

@@ -100,7 +100,6 @@ const Conges = () => {
     };
 
     // Ajouter un nouveau congé
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -149,7 +148,7 @@ const Conges = () => {
             setLoading(false);
         }
     };
- 
+
     // Afficher un Snackbar (notification)
     const showSnackbar = (message, severity) => {
         setSnackbarMessage(message);
@@ -165,26 +164,52 @@ const Conges = () => {
     return (
         <Root>
             <AppBarStyled position="fixed" style={{ backgroundColor: darkMode ? '#424242' : 'transparent' }}>
-                <InputBase
-                    placeholder="Rechercher..."
-                    startAdornment={<SearchIcon style={{ color: darkMode ? 'white' : 'black' }} />}
-                    style={{ flex: 1, marginLeft: 8, color: darkMode ? 'white' : 'black' }}
-                />
-                <IconButton color="inherit" aria-label="notifications">
-                    <Notifications style={{ color: darkMode ? 'white' : 'black' }} />
-                </IconButton>
-                <IconButton color="inherit" aria-label="toggle theme" onClick={toggleTheme}>
-                    <Brightness4 style={{ color: darkMode ? 'white' : 'black' }} />
-                </IconButton>
-                <IconButton color="inherit" aria-label="settings">
-                    <Settings style={{ color: darkMode ? 'white' : 'black' }} />
-                </IconButton>
-                <IconButton color="inherit" aria-label="account">
-                    <AccountCircle style={{ color: darkMode ? 'white' : 'black' }} />
-                </IconButton>
-                <IconButton color="inherit" aria-label="logout">
-                    <ExitToApp style={{ color: darkMode ? 'white' : 'black' }} />
-                </IconButton>
+                {/* Côté gauche vide (seulement le mot "ADMINIS") */}
+                <div style={{ display: "flex", alignItems: "center", marginLeft: 16 }}>
+                    <Typography variant="h6" style={{ color: darkMode ? 'white' : 'black' }}>
+                        ADMINIS
+                    </Typography>
+                </div>
+
+                {/* Barre de recherche centrée */}
+                <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Paper
+                        component="form"
+                        style={{
+                            display: "flex",
+                            alignItems: "center",
+                            width: 400, // Largeur de la barre de recherche
+                            backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)', // Fond semi-transparent
+                            borderRadius: 8, // Bordures arrondies
+                            padding: '2px 4px', // Espacement interne
+                        }}
+                    >
+                        <InputBase
+                            placeholder="Rechercher..."
+                            startAdornment={<SearchIcon style={{ color: darkMode ? 'white' : 'black', margin: '0 8px' }} />}
+                            style={{ flex: 1, color: darkMode ? 'white' : 'black' }}
+                        />
+                    </Paper>
+                </div>
+
+                {/* Icônes à droite */}
+                <div style={{ display: "flex", alignItems: "center", marginRight: 16 }}>
+                    <IconButton color="inherit" aria-label="notifications">
+                        <Notifications style={{ color: darkMode ? 'white' : 'black' }} />
+                    </IconButton>
+                    <IconButton color="inherit" aria-label="toggle theme" onClick={toggleTheme}>
+                        <Brightness4 style={{ color: darkMode ? 'white' : 'black' }} />
+                    </IconButton>
+                    <IconButton color="inherit" aria-label="settings">
+                        <Settings style={{ color: darkMode ? 'white' : 'black' }} />
+                    </IconButton>
+                    <IconButton color="inherit" aria-label="account">
+                        <AccountCircle style={{ color: darkMode ? 'white' : 'black' }} />
+                    </IconButton>
+                    <IconButton color="inherit" aria-label="logout" onClick={() => console.log("Déconnexion")}>
+                        <ExitToApp style={{ color: darkMode ? 'white' : 'black' }} />
+                    </IconButton>
+                </div>
             </AppBarStyled>
 
             <DrawerStyled
@@ -192,17 +217,29 @@ const Conges = () => {
                 PaperProps={{ style: { backgroundColor: darkMode ? '#333' : '#fff' } }}
             >
                 <List>
-                    <ListItem>
-                        <ListItemText primary="ADMINIS" />
+                    {/* Titre "ADMINIS" avec espace en dessous */}
+                    <ListItem style={{ marginBottom: 24 }}> {/* Ajoutez une marge en bas */}
+                        <ListItemText
+                            primary=" "
+                            style={{ color: darkMode ? 'white' : 'black' }}
+                        />
                     </ListItem>
+
+                    {/* Utilisateur avec icône */}
                     <ListItem>
                         <ListItemIcon>
-                            <AccountCircle />
+                            <AccountCircle style={{ color: darkMode ? 'white' : 'black' }} />
                         </ListItemIcon>
-                        <ListItemText primary="Ed Roh" secondary="VP Fancy Admin" />
+                        <ListItemText
+                            primary="User"
+                            secondary="Admin"
+                            style={{ color: darkMode ? 'white' : 'black' }}
+                        />
                     </ListItem>
+
+                    {/* Autres éléments de la barre latérale */}
                     <ListItem>
-                        <ListItemText primary="Data" />
+                        <ListItemText primary="Data" style={{ color: darkMode ? 'white' : 'black' }} />
                     </ListItem>
                     <ListItem button component={Link} to="/">
                         <ListItemIcon>
@@ -241,7 +278,7 @@ const Conges = () => {
                         <ListItemText primary="Calendar" style={{ color: darkMode ? 'white' : 'black' }} />
                     </ListItem>
                     <ListItem>
-                        <ListItemText primary="Charts" />
+                        <ListItemText primary="Charts" style={{ color: darkMode ? 'white' : 'black' }} />
                     </ListItem>
                     <ListItem button component={Link} to="/charts">
                         <ListItemIcon>
@@ -345,25 +382,29 @@ const Conges = () => {
                                 const employe = employes.find((e) => e.id === conge.employeId);
                                 return (
                                     <Grid item xs={12} sm={6} md={4} key={conge.id}>
-                                        <Card>
+                                        <Card style={{
+                                            backgroundColor: 'transparent', // Supprimer le fond blanc
+                                            border: `1px solid ${darkMode ? '#555' : '#ddd'}`, // Bordure en fonction du mode sombre
+                                            boxShadow: 'none', // Supprimer l'ombre
+                                        }}>
                                             <CardContent>
-                                                <Typography variant="h6" color="primary">
+                                                <Typography variant="h6" style={{ color: darkMode ? 'white' : '#333' }}>
                                                     Congé #{conge.id}
                                                 </Typography>
-                                                <Typography>
+                                                <Typography style={{ color: darkMode ? 'white' : '#333' }}>
                                                     <strong>Employé :</strong>{" "}
                                                     {employe ? `${employe.nom} ${employe.prenom}` : "Inconnu"} (ID: {conge.employeId})
                                                 </Typography>
-                                                <Typography>
+                                                <Typography style={{ color: darkMode ? 'white' : '#333' }}>
                                                     <strong>Du :</strong> {new Date(conge.dateDebut).toLocaleDateString()}
                                                 </Typography>
-                                                <Typography>
+                                                <Typography style={{ color: darkMode ? 'white' : '#333' }}>
                                                     <strong>Au :</strong> {new Date(conge.dateFin).toLocaleDateString()}
                                                 </Typography>
-                                                <Typography>
+                                                <Typography style={{ color: darkMode ? 'white' : '#333' }}>
                                                     <strong>Motif :</strong> {conge.motif}
                                                 </Typography>
-                                                <Typography>
+                                                <Typography style={{ color: darkMode ? 'white' : '#333' }}>
                                                     <strong>Statut :</strong> {conge.statut}
                                                 </Typography>
                                             </CardContent>

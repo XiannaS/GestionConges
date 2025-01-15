@@ -234,26 +234,52 @@ const Employes = () => {
     return (
         <Root>
             <AppBarStyled position="fixed" style={{ backgroundColor: darkMode ? '#424242' : 'transparent' }}>
-                <InputBase
-                    placeholder="Rechercher..."
-                    startAdornment={<SearchIcon style={{ color: darkMode ? 'white' : 'black' }} />}
-                    style={{ flex: 1, marginLeft: 8, color: darkMode ? 'white' : 'black' }}
-                />
-                <IconButton color="inherit" aria-label="notifications">
-                    <Notifications style={{ color: darkMode ? 'white' : 'black' }} />
-                </IconButton>
-                <IconButton color="inherit" aria-label="toggle theme" onClick={toggleTheme}>
-                    <Brightness4 style={{ color: darkMode ? 'white' : 'black' }} />
-                </IconButton>
-                <IconButton color="inherit" aria-label="settings">
-                    <Settings style={{ color: darkMode ? 'white' : 'black' }} />
-                </IconButton>
-                <IconButton color="inherit" aria-label="account">
-                    <AccountCircle style={{ color: darkMode ? 'white' : 'black' }} />
-                </IconButton>
-                <IconButton color="inherit" aria-label="logout">
-                    <ExitToApp style={{ color: darkMode ? 'white' : 'black' }} />
-                </IconButton>
+                {/* Côté gauche vide (seulement le mot "ADMINIS") */}
+                <div style={{ display: "flex", alignItems: "center", marginLeft: 16 }}>
+                    <Typography variant="h6" style={{ color: darkMode ? 'white' : 'black' }}>
+                        ADMINIS
+                    </Typography>
+                </div>
+
+                {/* Barre de recherche centrée */}
+                <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Paper
+                        component="form"
+                        style={{
+                            display: "flex",
+                            alignItems: "center",
+                            width: 400, // Largeur de la barre de recherche
+                            backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)', // Fond semi-transparent
+                            borderRadius: 8, // Bordures arrondies
+                            padding: '2px 4px', // Espacement interne
+                        }}
+                    >
+                        <InputBase
+                            placeholder="Rechercher..."
+                            startAdornment={<SearchIcon style={{ color: darkMode ? 'white' : 'black', margin: '0 8px' }} />}
+                            style={{ flex: 1, color: darkMode ? 'white' : 'black' }}
+                        />
+                    </Paper>
+                </div>
+
+                {/* Icônes à droite */}
+                <div style={{ display: "flex", alignItems: "center", marginRight: 16 }}>
+                    <IconButton color="inherit" aria-label="notifications">
+                        <Notifications style={{ color: darkMode ? 'white' : 'black' }} />
+                    </IconButton>
+                    <IconButton color="inherit" aria-label="toggle theme" onClick={toggleTheme}>
+                        <Brightness4 style={{ color: darkMode ? 'white' : 'black' }} />
+                    </IconButton>
+                    <IconButton color="inherit" aria-label="settings">
+                        <Settings style={{ color: darkMode ? 'white' : 'black' }} />
+                    </IconButton>
+                    <IconButton color="inherit" aria-label="account">
+                        <AccountCircle style={{ color: darkMode ? 'white' : 'black' }} />
+                    </IconButton>
+                    <IconButton color="inherit" aria-label="logout" onClick={() => console.log("Déconnexion")}>
+                        <ExitToApp style={{ color: darkMode ? 'white' : 'black' }} />
+                    </IconButton>
+                </div>
             </AppBarStyled>
 
             <DrawerStyled
@@ -261,17 +287,29 @@ const Employes = () => {
                 PaperProps={{ style: { backgroundColor: darkMode ? '#333' : '#fff' } }}
             >
                 <List>
-                    <ListItem>
-                        <ListItemText primary="ADMINIS" />
+                    {/* Titre "ADMINIS" avec espace en dessous */}
+                    <ListItem style={{ marginBottom: 24 }}> {/* Ajoutez une marge en bas */}
+                        <ListItemText
+                            primary=" "
+                            style={{ color: darkMode ? 'white' : 'black' }}
+                        />
                     </ListItem>
+
+                    {/* Utilisateur avec icône */}
                     <ListItem>
                         <ListItemIcon>
-                            <AccountCircle />
+                            <AccountCircle style={{ color: darkMode ? 'white' : 'black' }} />
                         </ListItemIcon>
-                        <ListItemText primary="Ed Roh" secondary="VP Fancy Admin" />
+                        <ListItemText
+                            primary="User"
+                            secondary="Admin"
+                            style={{ color: darkMode ? 'white' : 'black' }}
+                        />
                     </ListItem>
+
+                    {/* Autres éléments de la barre latérale */}
                     <ListItem>
-                        <ListItemText primary="Data" />
+                        <ListItemText primary="Data" style={{ color: darkMode ? 'white' : 'black' }} />
                     </ListItem>
                     <ListItem button component={Link} to="/">
                         <ListItemIcon>
@@ -310,7 +348,7 @@ const Employes = () => {
                         <ListItemText primary="Calendar" style={{ color: darkMode ? 'white' : 'black' }} />
                     </ListItem>
                     <ListItem>
-                        <ListItemText primary="Charts" />
+                        <ListItemText primary="Charts" style={{ color: darkMode ? 'white' : 'black' }} />
                     </ListItem>
                     <ListItem button component={Link} to="/charts">
                         <ListItemIcon>
@@ -323,13 +361,19 @@ const Employes = () => {
 
             <Content>
                 <Container>
-                    <Typography variant="h4" gutterBottom>
+                    <Typography variant="h4" gutterBottom style={{ color: darkMode ? 'white' : 'black' }}>
                         Liste des employés
                     </Typography>
 
                     {/* Formulaire d'ajout/modification */}
-                    <Paper style={{ padding: "16px", marginBottom: "24px" }}>
-                        <Typography variant="h6" gutterBottom>
+                    <Paper
+                        style={{
+                            padding: "16px",
+                            marginBottom: "24px",
+                            backgroundColor: darkMode ? '#424242' : '#fff', // Fond dynamique
+                        }}
+                    >
+                        <Typography variant="h6" gutterBottom style={{ color: darkMode ? 'white' : 'black' }}>
                             {isEditing ? "Modifier un employé" : "Ajouter un employé"}
                         </Typography>
                         <Grid container spacing={2}>
@@ -341,6 +385,8 @@ const Employes = () => {
                                     name="nom"
                                     value={newEmploye.nom}
                                     onChange={handleInputChange}
+                                    InputLabelProps={{ style: { color: darkMode ? 'white' : 'black' } }}
+                                    InputProps={{ style: { color: darkMode ? 'white' : 'black' } }}
                                 />
                             </Grid>
                             <Grid item xs={12} md={4}>
@@ -351,6 +397,8 @@ const Employes = () => {
                                     name="prenom"
                                     value={newEmploye.prenom}
                                     onChange={handleInputChange}
+                                    InputLabelProps={{ style: { color: darkMode ? 'white' : 'black' } }}
+                                    InputProps={{ style: { color: darkMode ? 'white' : 'black' } }}
                                 />
                             </Grid>
                             <Grid item xs={12} md={4}>
@@ -361,6 +409,8 @@ const Employes = () => {
                                     name="email"
                                     value={newEmploye.email}
                                     onChange={handleInputChange}
+                                    InputLabelProps={{ style: { color: darkMode ? 'white' : 'black' } }}
+                                    InputProps={{ style: { color: darkMode ? 'white' : 'black' } }}
                                 />
                             </Grid>
                             <Grid item xs={12} md={4}>
@@ -372,6 +422,8 @@ const Employes = () => {
                                     name="soldeConge"
                                     value={newEmploye.soldeConge}
                                     onChange={handleInputChange}
+                                    InputLabelProps={{ style: { color: darkMode ? 'white' : 'black' } }}
+                                    InputProps={{ style: { color: darkMode ? 'white' : 'black' } }}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -423,10 +475,12 @@ const Employes = () => {
                                 InputProps={{
                                     startAdornment: (
                                         <IconButton>
-                                            <SearchIcon />
+                                            <SearchIcon style={{ color: darkMode ? 'white' : 'black' }} />
                                         </IconButton>
                                     ),
+                                    style: { color: darkMode ? 'white' : 'black' },
                                 }}
+                                InputLabelProps={{ style: { color: darkMode ? 'white' : 'black' } }}
                             />
                         </Grid>
                         <Grid item xs={12} md={3}>
@@ -456,23 +510,26 @@ const Employes = () => {
                     </Grid>
 
                     {/* Table des employés */}
-                    <TableContainer component={Paper}>
+                    <TableContainer
+                        component={Paper}
+                        style={{ backgroundColor: darkMode ? '#424242' : '#fff' }} // Fond dynamique
+                    >
                         <Table>
                             <TableHead>
                                 <TableRow>
-                                    <TableCell>
+                                    <TableCell style={{ color: darkMode ? 'white' : 'black' }}>
                                         <strong>Nom</strong>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell style={{ color: darkMode ? 'white' : 'black' }}>
                                         <strong>Prénom</strong>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell style={{ color: darkMode ? 'white' : 'black' }}>
                                         <strong>Email</strong>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell style={{ color: darkMode ? 'white' : 'black' }}>
                                         <strong>Solde de congé</strong>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell style={{ color: darkMode ? 'white' : 'black' }}>
                                         <strong>Actions</strong>
                                     </TableCell>
                                 </TableRow>
@@ -480,10 +537,10 @@ const Employes = () => {
                             <TableBody>
                                 {sortedEmployes.map((employe) => (
                                     <TableRow key={employe.id}>
-                                        <TableCell>{employe.nom}</TableCell>
-                                        <TableCell>{employe.prenom}</TableCell>
-                                        <TableCell>{employe.email}</TableCell>
-                                        <TableCell>{employe.soldeConge}</TableCell>
+                                        <TableCell style={{ color: darkMode ? 'white' : 'black' }}>{employe.nom}</TableCell>
+                                        <TableCell style={{ color: darkMode ? 'white' : 'black' }}>{employe.prenom}</TableCell>
+                                        <TableCell style={{ color: darkMode ? 'white' : 'black' }}>{employe.email}</TableCell>
+                                        <TableCell style={{ color: darkMode ? 'white' : 'black' }}>{employe.soldeConge}</TableCell>
                                         <TableCell>
                                             <IconButton
                                                 color="primary"
@@ -492,13 +549,13 @@ const Employes = () => {
                                                     setIsEditing(true);
                                                 }}
                                             >
-                                                <Edit />
+                                                <Edit style={{ color: darkMode ? 'white' : 'black' }} /> {/* Icône dynamique */}
                                             </IconButton>
                                             <IconButton
                                                 color="secondary"
                                                 onClick={() => handleDeleteEmploye(employe.id)}
                                             >
-                                                <Delete />
+                                                <Delete style={{ color: darkMode ? 'white' : 'black' }} /> {/* Icône dynamique */}
                                             </IconButton>
                                         </TableCell>
                                     </TableRow>
@@ -513,10 +570,23 @@ const Employes = () => {
                         onClose={cancelDelete}
                         aria-labelledby="alert-dialog-title"
                         aria-describedby="alert-dialog-description"
+                        PaperProps={{
+                            style: {
+                                backgroundColor: darkMode ? '#424242' : '#fff', // Fond dynamique
+                            },
+                        }}
                     >
-                        <DialogTitle id="alert-dialog-title">Confirmer la suppression</DialogTitle>
+                        <DialogTitle
+                            id="alert-dialog-title"
+                            style={{ color: darkMode ? 'white' : 'black' }} // Texte dynamique
+                        >
+                            Confirmer la suppression
+                        </DialogTitle>
                         <DialogContent>
-                            <DialogContentText id="alert-dialog-description">
+                            <DialogContentText
+                                id="alert-dialog-description"
+                                style={{ color: darkMode ? 'white' : 'black' }} // Texte dynamique
+                            >
                                 Êtes-vous sûr de vouloir supprimer cet employé ?
                             </DialogContentText>
                         </DialogContent>

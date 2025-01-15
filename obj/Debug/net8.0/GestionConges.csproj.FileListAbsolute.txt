@@ -285,3 +285,4 @@ C:\Users\Aicha\source\repos\GestionConges\bin\Debug\net8.0\GestionConges.runtime
 C:\Users\Aicha\source\repos\GestionConges\bin\Debug\net8.0\GestionConges.pdb
 C:\Users\Aicha\source\repos\GestionConges\obj\Debug\net8.0\GestionConges.genruntimeconfig.cache
 C:\Users\Aicha\source\repos\GestionConges\obj\Debug\net8.0\ref\GestionConges.dll
+C:\Users\Aicha\source\repos\GestionConges\obj\Debug\net8.0\GestionConges.sourcelink.json

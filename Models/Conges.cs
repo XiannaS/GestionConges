@@ -8,21 +8,19 @@ namespace GestionConges.Models
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "La date de début est obligatoire.")]
+        [Required]
         public DateTime DateDebut { get; set; }
 
-        [Required(ErrorMessage = "La date de fin est obligatoire.")]
+        [Required]
         public DateTime DateFin { get; set; }
 
-        [Required(ErrorMessage = "Le motif est obligatoire.")]
-        [StringLength(100, ErrorMessage = "Le motif ne peut pas dépasser 100 caractères.")]
+        [Required, StringLength(100)]
         public string Motif { get; set; } = null!;
 
-        [Required(ErrorMessage = "Le statut est obligatoire.")]
-        [StringLength(20, ErrorMessage = "Le statut ne peut pas dépasser 20 caractères.")]
-        public string Statut { get; set; } = "En attente";  // Valeur par défaut
+        [Required, StringLength(20)]
+        public string Statut { get; set; } = "En attente"; // Valeur par défaut
 
-        [Required(ErrorMessage = "L'ID de l'employé est obligatoire.")]
+        [Required]
         public int EmployeId { get; set; }
 
         // Propriété de navigation pour Employes
