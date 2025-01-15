@@ -241,6 +241,10 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\wwwroot\\uploads\\pres_20250115142039.pdf",
+      "PackagePath": "staticwebassets\\uploads\\pres_20250115142039.pdf"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.GestionConges.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },

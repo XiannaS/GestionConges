@@ -720,5 +720,17 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1117"},{"Name":"Content-Type","Value":"text/plain"},{"Name":"ETag","Value":"\u0022hjIBkvmgxQXbNXK3B9YQ3t06RwLuQSQzC/dpvuB/lMk=\u0022"},{"Name":"Last-Modified","Value":"Sat, 04 Jan 2025 08:33:28 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/GestionConges/uploads/pres_20250115142039.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\pres_20250115142039.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-XnK\u002BEdHIk1FSE42Ag2zSEGMZG4FbriQNhr9fa53GdH4="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"3029236"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022XnK\u002BEdHIk1FSE42Ag2zSEGMZG4FbriQNhr9fa53GdH4=\u0022"},{"Name":"Last-Modified","Value":"Wed, 15 Jan 2025 13:20:39 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/GestionConges/uploads/pres_20250115142039.u08jv9cn2q.pdf">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\pres_20250115142039.pdf'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"u08jv9cn2q"},{"Name":"integrity","Value":"sha256-XnK\u002BEdHIk1FSE42Ag2zSEGMZG4FbriQNhr9fa53GdH4="},{"Name":"label","Value":"_content/GestionConges/uploads/pres_20250115142039.pdf"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3029236"},{"Name":"Content-Type","Value":"application/pdf"},{"Name":"ETag","Value":"\u0022XnK\u002BEdHIk1FSE42Ag2zSEGMZG4FbriQNhr9fa53GdH4=\u0022"},{"Name":"Last-Modified","Value":"Wed, 15 Jan 2025 13:20:39 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
   </ItemGroup>
 </Project>

@@ -4921,6 +4921,88 @@
           "Value": "sha256-OZVI+w57FGwS9boYCZpH1ZSpcP7pYhLu4KtIUvPlZ4I="
         }
       ]
+    },
+    {
+      "Route": "uploads/pres_20250115142039.pdf",
+      "AssetFile": "uploads/pres_20250115142039.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3029236"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XnK+EdHIk1FSE42Ag2zSEGMZG4FbriQNhr9fa53GdH4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 15 Jan 2025 13:20:39 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-XnK+EdHIk1FSE42Ag2zSEGMZG4FbriQNhr9fa53GdH4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/pres_20250115142039.u08jv9cn2q.pdf",
+      "AssetFile": "uploads/pres_20250115142039.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3029236"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XnK+EdHIk1FSE42Ag2zSEGMZG4FbriQNhr9fa53GdH4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 15 Jan 2025 13:20:39 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "u08jv9cn2q"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-XnK+EdHIk1FSE42Ag2zSEGMZG4FbriQNhr9fa53GdH4="
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/pres_20250115142039.pdf"
+        }
+      ]
     }
   ]
 }

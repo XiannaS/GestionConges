@@ -51,7 +51,7 @@ import axios from "axios";
 
 const CertificatsPage = () => {
     const { darkMode, toggleTheme } = useTheme();
-    const [certificats, setCertificats] = useState([]);
+    const [certificats, setCertificats] = useState([]); // Initialisation avec un tableau vide
     const [openDialog, setOpenDialog] = useState(false);
     const [selectedCertificat, setSelectedCertificat] = useState(null);
     const [snackbarOpen, setSnackbarOpen] = useState(false);
@@ -63,7 +63,14 @@ const CertificatsPage = () => {
         const fetchCertificats = async () => {
             try {
                 const response = await axios.get("http://localhost:5126/api/CertificatMedical");
-                setCertificats(response.data);
+                console.log("Réponse de l'API :", response.data); // Inspectez la réponse
+
+                // Extraire le tableau $values de la réponse
+                if (response.data.$values) {
+                    setCertificats(response.data.$values); // Utilisez le tableau $values
+                } else {
+                    setCertificats([]); // Si $values n'existe pas, initialisez avec un tableau vide
+                }
             } catch (error) {
                 console.error("Erreur lors de la récupération des certificats :", error);
                 showSnackbar("Erreur lors de la récupération des certificats", "error");
@@ -285,7 +292,7 @@ const CertificatsPage = () => {
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>
-                                        {certificats.map((certificat) => (
+                                        {Array.isArray(certificats) && certificats.map((certificat) => (
                                             <TableRow key={certificat.id}>
                                                 <TableCell style={{ color: darkMode ? 'white' : 'black' }}>{certificat.employe?.nom}</TableCell>
                                                 <TableCell style={{ color: darkMode ? 'white' : 'black' }}>{new Date(certificat.dateDebut).toLocaleDateString()}</TableCell>
@@ -444,7 +451,11 @@ const CertificatsPage = () => {
 
                                 // Recharger la liste des certificats
                                 const response = await axios.get("http://localhost:5126/api/CertificatMedical");
-                                setCertificats(response.data);
+                                if (response.data.$values) {
+                                    setCertificats(response.data.$values); // Utilisez le tableau $values
+                                } else {
+                                    setCertificats(response.data); // Sinon, utilisez directement response.data
+                                }
 
                                 // Fermer le dialogue
                                 handleCloseDialog();

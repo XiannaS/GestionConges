@@ -52,7 +52,7 @@ const Dashboard = () => {
     const [employes, setEmployes] = useState([]);
     const [conges, setConges] = useState([]);
     const [certificats, setCertificats] = useState([]);
-    const [loading, setLoading] = useState(true); // État pour gérer le chargement
+    const [loading, setLoading] = useState(true);
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [snackbarMessage, setSnackbarMessage] = useState("");
     const [snackbarSeverity, setSnackbarSeverity] = useState("success");
@@ -64,10 +64,10 @@ const Dashboard = () => {
                 const [employesResponse, congesResponse, certificatsResponse] = await Promise.all([
                     axios.get("http://localhost:5126/api/employes"),
                     axios.get("http://localhost:5126/api/conges"),
-                    axios.get("http://localhost:5126/api/certificats"),
+                    axios.get("http://localhost:5126/api/CertificatMedical"),
                 ]);
 
-                // Accéder à $values pour obtenir les données
+                // Accéder aux données
                 const employes = employesResponse.data.$values || [];
                 const conges = congesResponse.data.$values || [];
                 const certificats = certificatsResponse.data.$values || [];
@@ -76,7 +76,7 @@ const Dashboard = () => {
                 const nombreEmployes = employes.length;
                 const congesEnAttente = conges.filter(c => c.statut === "En attente").length;
                 const certificatsMedicaux = certificats.length;
-                const evenementsAVenir = conges.filter(c => new Date(c.dateDebut) > new Date()).length; // Événements à venir
+                const evenementsAVenir = conges.filter(c => new Date(c.dateDebut) > new Date()).length;
 
                 setStatistiques({
                     nombreEmployes,
@@ -90,20 +90,17 @@ const Dashboard = () => {
                 setCertificats(certificats);
             } catch (error) {
                 if (error.response) {
-                    // Erreur de réponse du serveur (4xx, 5xx)
                     console.error("Erreur de réponse du serveur :", error.response.data);
                     showSnackbar(`Erreur ${error.response.status}: ${error.response.data.message}`, "error");
                 } else if (error.request) {
-                    // Pas de réponse du serveur
                     console.error("Pas de réponse du serveur :", error.request);
                     showSnackbar("Le serveur ne répond pas. Veuillez réessayer plus tard.", "error");
                 } else {
-                    // Autres erreurs
                     console.error("Erreur lors de la configuration de la requête :", error.message);
                     showSnackbar("Une erreur inattendue est survenue.", "error");
                 }
             } finally {
-                setLoading(false); // Arrêter le chargement
+                setLoading(false);
             }
         };
         fetchData();
@@ -134,7 +131,6 @@ const Dashboard = () => {
         <Root>
             {/* En-tête */}
             <AppBarStyled position="fixed" style={{ backgroundColor: darkMode ? '#424242' : 'transparent' }}>
-                {/* Côté gauche vide (seulement le mot "ADMINIS") */}
                 <div style={{ display: "flex", alignItems: "center", marginLeft: 16 }}>
                     <Typography variant="h6" style={{ color: darkMode ? 'white' : 'black' }}>
                         ADMINIS
@@ -148,10 +144,10 @@ const Dashboard = () => {
                         style={{
                             display: "flex",
                             alignItems: "center",
-                            width: 400, // Largeur de la barre de recherche
-                            backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)', // Fond semi-transparent
-                            borderRadius: 8, // Bordures arrondies
-                            padding: '2px 4px', // Espacement interne
+                            width: 400,
+                            backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)',
+                            borderRadius: 8,
+                            padding: '2px 4px',
                         }}
                     >
                         <InputBase
@@ -182,20 +178,16 @@ const Dashboard = () => {
                 </div>
             </AppBarStyled>
 
+            {/* Barre latérale */}
             <DrawerStyled
                 variant="permanent"
                 PaperProps={{ style: { backgroundColor: darkMode ? '#333' : '#fff' } }}
             >
                 <List>
-                    {/* Titre "ADMINIS" avec espace en dessous */}
-                    <ListItem style={{ marginBottom: 24 }}> {/* Ajoutez une marge en bas */}
-                        <ListItemText
-                            primary=" "
-                            style={{ color: darkMode ? 'white' : 'black' }}
-                        />
+                    <ListItem style={{ marginBottom: 24 }}>
+                        <ListItemText primary=" " style={{ color: darkMode ? 'white' : 'black' }} />
                     </ListItem>
 
-                    {/* Utilisateur avec icône */}
                     <ListItem>
                         <ListItemIcon>
                             <AccountCircle style={{ color: darkMode ? 'white' : 'black' }} />
@@ -207,7 +199,6 @@ const Dashboard = () => {
                         />
                     </ListItem>
 
-                    {/* Autres éléments de la barre latérale */}
                     <ListItem>
                         <ListItemText primary="Data" style={{ color: darkMode ? 'white' : 'black' }} />
                     </ListItem>
@@ -260,7 +251,6 @@ const Dashboard = () => {
             </DrawerStyled>
 
             {/* Contenu principal */}
-
             <Content>
                 <Grid container spacing={3}>
                     {/* Cartes de résumé */}
@@ -348,10 +338,18 @@ const Dashboard = () => {
                                     <TableBody>
                                         {conges.map((conge) => (
                                             <TableRow key={conge.id}>
-                                                <TableCell style={{ color: darkMode ? 'white' : 'black' }}>{conge.employe?.nom}</TableCell>
-                                                <TableCell style={{ color: darkMode ? 'white' : 'black' }}>{new Date(conge.dateDebut).toLocaleDateString()}</TableCell>
-                                                <TableCell style={{ color: darkMode ? 'white' : 'black' }}>{new Date(conge.dateFin).toLocaleDateString()}</TableCell>
-                                                <TableCell style={{ color: darkMode ? 'white' : 'black' }}>{conge.statut}</TableCell>
+                                                <TableCell style={{ color: darkMode ? 'white' : 'black' }}>
+                                                    {conge.employe?.nom} {conge.employe?.prenom}
+                                                </TableCell>
+                                                <TableCell style={{ color: darkMode ? 'white' : 'black' }}>
+                                                    {new Date(conge.dateDebut).toLocaleDateString()}
+                                                </TableCell>
+                                                <TableCell style={{ color: darkMode ? 'white' : 'black' }}>
+                                                    {new Date(conge.dateFin).toLocaleDateString()}
+                                                </TableCell>
+                                                <TableCell style={{ color: darkMode ? 'white' : 'black' }}>
+                                                    {conge.statut || "Non spécifié"}
+                                                </TableCell>
                                             </TableRow>
                                         ))}
                                     </TableBody>

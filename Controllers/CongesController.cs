@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using GestionConges.Data;
 using GestionConges.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,7 +24,6 @@ namespace GestionConges.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Conges>>> GetConges()
         {
-            // Inclure les données liées (Employe)
             return await _context.Conges
                 .Include(c => c.Employe)
                 .ToListAsync();
@@ -33,7 +33,6 @@ namespace GestionConges.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Conges>> GetConge(int id)
         {
-            // Inclure les données liées (Employe)
             var conge = await _context.Conges
                 .Include(c => c.Employe)
                 .FirstOrDefaultAsync(c => c.Id == id);
@@ -50,35 +49,35 @@ namespace GestionConges.Controllers
         [HttpPost]
         public async Task<ActionResult<Conges>> PostConge([FromBody] Conges conge)
         {
-            // Log des données reçues
-            Console.WriteLine("Données reçues pour l'ajout d'un congé :");
-            Console.WriteLine($"ID Employé : {conge.EmployeId}");
-            Console.WriteLine($"Date de début : {conge.DateDebut}");
-            Console.WriteLine($"Date de fin : {conge.DateFin}");
-            Console.WriteLine($"Motif : {conge.Motif}");
-            Console.WriteLine($"Statut : {conge.Statut}");
-
-            try
+            // Vérifier si l'employé existe
+            var employe = await _context.Employes.FindAsync(conge.EmployeId);
+            if (employe == null)
             {
-                _context.Conges.Add(conge);
-                await _context.SaveChangesAsync();
-
-                // Log de succès
-                Console.WriteLine("Congé ajouté avec succès !");
-                Console.WriteLine($"ID du congé ajouté : {conge.Id}");
-
-                return CreatedAtAction("GetConge", new { id = conge.Id }, conge);
+                return NotFound("Employé non trouvé.");
             }
-            catch (Exception ex)
+
+            // Calculer la durée du congé
+            var dureeConge = (conge.DateFin - conge.DateDebut).Days;
+
+            // Vérifier si le solde de congés est suffisant
+            if (employe.SoldeConge < dureeConge)
             {
-                // Log de l'erreur
-                Console.Error.WriteLine("Erreur lors de l'ajout du congé :");
-                Console.Error.WriteLine(ex.Message);
-                Console.Error.WriteLine(ex.StackTrace);
-
-                return StatusCode(500, "Une erreur interne est survenue lors de l'ajout du congé.");
+                return BadRequest("Solde de congés insuffisant.");
             }
+
+            // Ajouter le congé
+            _context.Conges.Add(conge);
+
+            // Mettre à jour le solde de congés de l'employé
+            employe.SoldeConge -= dureeConge;
+            _context.Entry(employe).State = EntityState.Modified;
+
+            // Sauvegarder les modifications
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetConge", new { id = conge.Id }, conge);
         }
+
         // PUT: api/Conges/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutConge(int id, Conges conge)
@@ -119,7 +118,24 @@ namespace GestionConges.Controllers
                 return NotFound();
             }
 
+            // Récupérer l'employé associé
+            var employe = await _context.Employes.FindAsync(conge.EmployeId);
+            if (employe == null)
+            {
+                return NotFound("Employé non trouvé.");
+            }
+
+            // Calculer la durée du congé
+            var dureeConge = (conge.DateFin - conge.DateDebut).Days;
+
+            // Restaurer le solde de congés de l'employé
+            employe.SoldeConge += dureeConge;
+            _context.Entry(employe).State = EntityState.Modified;
+
+            // Supprimer le congé
             _context.Conges.Remove(conge);
+
+            // Sauvegarder les modifications
             await _context.SaveChangesAsync();
 
             return NoContent();
