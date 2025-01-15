@@ -1,0 +1,419 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|c:\\users\\aicha\\source\\repos\\gestionconges\\mon-dashboard\\src\\pages\\conges.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|solutionrelative:mon-dashboard\\src\\pages\\conges.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|c:\\users\\aicha\\source\\repos\\gestionconges\\models\\conges.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|solutionrelative:models\\conges.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|c:\\users\\aicha\\source\\repos\\gestionconges\\models\\employes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|solutionrelative:models\\employes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|c:\\users\\aicha\\source\\repos\\gestionconges\\controllers\\congescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|solutionrelative:controllers\\congescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|c:\\users\\aicha\\source\\repos\\gestionconges\\controllers\\employescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|solutionrelative:controllers\\employescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|c:\\users\\aicha\\source\\repos\\gestionconges\\mon-dashboard\\src\\pages\\dashboard.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|solutionrelative:mon-dashboard\\src\\pages\\dashboard.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|c:\\users\\aicha\\source\\repos\\gestionconges\\mon-dashboard\\src\\styles\\dashboardstyles.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|solutionrelative:mon-dashboard\\src\\styles\\dashboardstyles.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|c:\\users\\aicha\\source\\repos\\gestionconges\\mon-dashboard\\src\\pages\\employes.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|solutionrelative:mon-dashboard\\src\\pages\\employes.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|c:\\users\\aicha\\source\\repos\\gestionconges\\mon-dashboard\\src\\pages\\certificatspage.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|solutionrelative:mon-dashboard\\src\\pages\\certificatspage.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|c:\\users\\aicha\\source\\repos\\gestionconges\\migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|solutionrelative:migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|c:\\users\\aicha\\source\\repos\\gestionconges\\migrations\\20250114231121_updatecongesmode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|solutionrelative:migrations\\20250114231121_updatecongesmode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|c:\\users\\aicha\\source\\repos\\gestionconges\\migrations\\20250114225913_updatecongesmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|solutionrelative:migrations\\20250114225913_updatecongesmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|c:\\users\\aicha\\source\\repos\\gestionconges\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|c:\\users\\aicha\\source\\repos\\gestionconges\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|c:\\users\\aicha\\source\\repos\\gestionconges\\models\\certificatmedical.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|solutionrelative:models\\certificatmedical.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|c:\\users\\aicha\\source\\repos\\gestionconges\\mon-dashboard\\src\\app.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|solutionrelative:mon-dashboard\\src\\app.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|c:\\users\\aicha\\source\\repos\\gestionconges\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|c:\\users\\aicha\\source\\repos\\gestionconges\\mon-dashboard\\src\\styles\\dashboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|solutionrelative:mon-dashboard\\src\\styles\\dashboard.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|c:\\users\\aicha\\source\\repos\\gestionconges\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|c:\\users\\aicha\\source\\repos\\gestionconges\\gestionconges.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|solutionrelative:gestionconges.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|c:\\users\\aicha\\source\\repos\\gestionconges\\mon-dashboard\\src\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|solutionrelative:mon-dashboard\\src\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|c:\\users\\aicha\\source\\repos\\gestionconges\\mon-dashboard\\src\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|solutionrelative:mon-dashboard\\src\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|c:\\users\\aicha\\source\\repos\\gestionconges\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{2C5CD10F-0F35-41D2-8BB4-54BC02988977}|GestionConges.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Aicha\\source\\repos\\GestionConges\\Models\\Manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\Manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CongesController.cs",
+              "DocumentMoniker": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\Controllers\\CongesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CongesController.cs",
+              "ToolTip": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\Controllers\\CongesController.cs",
+              "RelativeToolTip": "Controllers\\CongesController.cs",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAiwIQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-12T19:23:31.643Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Employes.cs",
+              "DocumentMoniker": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\Models\\Employes.cs",
+              "RelativeDocumentMoniker": "Models\\Employes.cs",
+              "ToolTip": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\Models\\Employes.cs",
+              "RelativeToolTip": "Models\\Employes.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-12T19:24:31.888Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Conges.cs",
+              "DocumentMoniker": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\Models\\Conges.cs",
+              "RelativeDocumentMoniker": "Models\\Conges.cs",
+              "ToolTip": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\Models\\Conges.cs",
+              "RelativeToolTip": "Models\\Conges.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAA/wB4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-12T20:11:23.673Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Conges.js",
+              "DocumentMoniker": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\mon-dashboard\\src\\pages\\Conges.js",
+              "RelativeDocumentMoniker": "mon-dashboard\\src\\pages\\Conges.js",
+              "ToolTip": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\mon-dashboard\\src\\pages\\Conges.js",
+              "RelativeToolTip": "mon-dashboard\\src\\pages\\Conges.js",
+              "ViewState": "AgIAAHcAAAAAAAAAAAAqwIYAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-01-12T19:42:15.021Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EmployesController.cs",
+              "DocumentMoniker": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\Controllers\\EmployesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\EmployesController.cs",
+              "ToolTip": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\Controllers\\EmployesController.cs",
+              "RelativeToolTip": "Controllers\\EmployesController.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAiwGcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-12T19:23:33.004Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Dashboard.js",
+              "DocumentMoniker": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\mon-dashboard\\src\\pages\\Dashboard.js",
+              "RelativeDocumentMoniker": "mon-dashboard\\src\\pages\\Dashboard.js",
+              "ToolTip": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\mon-dashboard\\src\\pages\\Dashboard.js",
+              "RelativeToolTip": "mon-dashboard\\src\\pages\\Dashboard.js",
+              "ViewState": "AgIAADwBAAAAAAAAAAAYwE4BAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-01-12T20:35:43.269Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DashboardStyles.js",
+              "DocumentMoniker": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\mon-dashboard\\src\\styles\\DashboardStyles.js",
+              "RelativeDocumentMoniker": "mon-dashboard\\src\\styles\\DashboardStyles.js",
+              "ToolTip": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\mon-dashboard\\src\\styles\\DashboardStyles.js",
+              "RelativeToolTip": "mon-dashboard\\src\\styles\\DashboardStyles.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-01-15T00:11:59.439Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Employes.js",
+              "DocumentMoniker": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\mon-dashboard\\src\\pages\\Employes.js",
+              "RelativeDocumentMoniker": "mon-dashboard\\src\\pages\\Employes.js",
+              "ToolTip": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\mon-dashboard\\src\\pages\\Employes.js",
+              "RelativeToolTip": "mon-dashboard\\src\\pages\\Employes.js",
+              "ViewState": "AgIAABYCAAAAAAAAAAAYwCgCAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-01-12T19:35:53.403Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CertificatsPage.js",
+              "DocumentMoniker": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\mon-dashboard\\src\\pages\\CertificatsPage.js",
+              "RelativeDocumentMoniker": "mon-dashboard\\src\\pages\\CertificatsPage.js",
+              "ToolTip": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\mon-dashboard\\src\\pages\\CertificatsPage.js",
+              "RelativeToolTip": "mon-dashboard\\src\\pages\\CertificatsPage.js",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAAoAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-01-12T20:35:02.526Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ApplicationDbContextModelSnapshot.cs",
+              "DocumentMoniker": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "ToolTip": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "RelativeToolTip": "Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAUwHQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-14T23:12:11.599Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "20250114231121_UpdateCongesMode.cs",
+              "DocumentMoniker": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\Migrations\\20250114231121_UpdateCongesMode.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250114231121_UpdateCongesMode.cs",
+              "ToolTip": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\Migrations\\20250114231121_UpdateCongesMode.cs",
+              "RelativeToolTip": "Migrations\\20250114231121_UpdateCongesMode.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAwwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-14T23:13:50.936Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "20250114225913_UpdateCongesModel.cs",
+              "DocumentMoniker": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\Migrations\\20250114225913_UpdateCongesModel.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250114225913_UpdateCongesModel.cs",
+              "ToolTip": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\Migrations\\20250114225913_UpdateCongesModel.cs",
+              "RelativeToolTip": "Migrations\\20250114225913_UpdateCongesModel.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAUwFQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-14T23:12:14.42Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAgwBsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-12T20:18:48.788Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-12T20:20:25.978Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CertificatMedical.cs",
+              "DocumentMoniker": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\Models\\CertificatMedical.cs",
+              "RelativeDocumentMoniker": "Models\\CertificatMedical.cs",
+              "ToolTip": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\Models\\CertificatMedical.cs",
+              "RelativeToolTip": "Models\\CertificatMedical.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-14T21:47:06.631Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "App.js",
+              "DocumentMoniker": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\mon-dashboard\\src\\App.js",
+              "RelativeDocumentMoniker": "mon-dashboard\\src\\App.js",
+              "ToolTip": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\mon-dashboard\\src\\App.js",
+              "RelativeToolTip": "mon-dashboard\\src\\App.js",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAiwCEAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-01-12T19:42:28.77Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAswDMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-12T20:13:01.843Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Dashboard.css",
+              "DocumentMoniker": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\mon-dashboard\\src\\styles\\Dashboard.css",
+              "RelativeDocumentMoniker": "mon-dashboard\\src\\styles\\Dashboard.css",
+              "ToolTip": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\mon-dashboard\\src\\styles\\Dashboard.css",
+              "RelativeToolTip": "mon-dashboard\\src\\styles\\Dashboard.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-01-14T19:42:48.7Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-12T20:49:45.603Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "GestionConges.csproj",
+              "DocumentMoniker": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\GestionConges.csproj",
+              "RelativeDocumentMoniker": "GestionConges.csproj",
+              "ToolTip": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\GestionConges.csproj",
+              "RelativeToolTip": "GestionConges.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-01-14T16:44:28.371Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "index.css",
+              "DocumentMoniker": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\mon-dashboard\\src\\index.css",
+              "RelativeDocumentMoniker": "mon-dashboard\\src\\index.css",
+              "ToolTip": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\mon-dashboard\\src\\index.css",
+              "RelativeToolTip": "mon-dashboard\\src\\index.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-01-12T21:10:37.812Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "App.css",
+              "DocumentMoniker": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\mon-dashboard\\src\\App.css",
+              "RelativeDocumentMoniker": "mon-dashboard\\src\\App.css",
+              "ToolTip": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\mon-dashboard\\src\\App.css",
+              "RelativeToolTip": "mon-dashboard\\src\\App.css",
+              "ViewState": "AgIAACYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-01-12T20:32:19.574Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Manager.cs",
+              "DocumentMoniker": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\Models\\Manager.cs",
+              "RelativeDocumentMoniker": "Models\\Manager.cs",
+              "ToolTip": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\Models\\Manager.cs",
+              "RelativeToolTip": "Models\\Manager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-12T20:11:41.597Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Aicha\\source\\repos\\GestionConges\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-12T20:04:19.609Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
