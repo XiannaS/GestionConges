@@ -61,7 +61,7 @@ namespace GestionConges.Controllers
             await _context.SaveChangesAsync();
 
             // Retourne une réponse HTTP 201 (Created) avec l'URL de l'employé créé et l'objet employé
-            return CreatedAtAction("GetEmploye", new { id = employe.Id }, employe);
+            return CreatedAtAction(nameof(GetEmploye), new { id = employe.Id }, employe);
         }
 
         // PUT: api/Employes/5
@@ -87,7 +87,7 @@ namespace GestionConges.Controllers
             catch (DbUpdateConcurrencyException)
             {
                 // Gère les conflits de concurrence (si un autre utilisateur a modifié l'employé en même temps)
-                if (!EmployeExists(id))
+                if (!_context.Employes.Any(e => e.Id == id))
                 {
                     // Si l'employé n'existe plus, retourne une réponse HTTP 404 (Not Found)
                     return NotFound();
@@ -110,6 +110,7 @@ namespace GestionConges.Controllers
         {
             // Recherche l'employé dans la base de données par son ID de manière asynchrone
             var employe = await _context.Employes.FindAsync(id);
+
             // Si l'employé n'est pas trouvé, retourne une réponse HTTP 404 (Not Found)
             if (employe == null)
             {
@@ -123,13 +124,6 @@ namespace GestionConges.Controllers
 
             // Retourne une réponse HTTP 204 (No Content) pour indiquer que la suppression a réussi
             return NoContent();
-        }
-
-        // Méthode utilitaire pour vérifier si un employé existe dans la base de données
-        private bool EmployeExists(int id)
-        {
-            // Retourne true si un employé avec l'ID spécifié existe, sinon false
-            return _context.Employes.Any(e => e.Id == id);
         }
     }
 }

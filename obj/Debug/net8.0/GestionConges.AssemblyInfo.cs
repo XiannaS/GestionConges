@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GestionConges")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e5aed25fb0c17e3fdf40c55b6bb050f3273293a0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f91be4736a8970871d66c795c9cf2d8b01834d88")]
 [assembly: System.Reflection.AssemblyProductAttribute("GestionConges")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GestionConges")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
